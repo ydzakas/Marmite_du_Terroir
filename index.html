@@ -3,151 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Marmite du Terroir | Menu & Livraison</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <title>La Marmite du Terroir | Gastronomie Togolaise</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --brand: #e67e22; --dark: #2c3e50; --bg: #fdfaf5; }
-        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--bg); color: var(--dark); scroll-behavior: smooth; }
-        
-        /* Header avec image gourmande */
-        header { 
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover; background-position: center;
-            color: white; padding: 60px 20px; text-align: center;
-        }
-        h1 { font-family: 'Playfair Display', serif; font-size: 2.8em; margin: 0; }
-        .badge-status { background: #27ae60; color: white; padding: 5px 15px; border-radius: 50px; font-size: 0.8em; }
-
-        /* Menu du jour */
-        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
-        .section-title { text-align: center; margin: 40px 0 20px; font-family: 'Playfair Display', serif; font-size: 2em; }
-        
-        .menu-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-        .menu-item { 
-            background: white; border-radius: 15px; overflow: hidden; 
-            display: flex; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: 0.3s;
-        }
-        .item-img { width: 120px; height: 120px; object-fit: cover; }
-        .item-info { padding: 15px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .item-name { font-weight: 600; font-size: 1.1em; margin: 0; }
-        .item-price { color: var(--brand); font-weight: 700; margin: 5px 0; }
-        
-        /* Bouton Ajouter au panier */
-        .add-btn {
-            background: var(--brand); color: white; border: none; padding: 8px 12px;
-            border-radius: 8px; cursor: pointer; font-size: 0.9em; font-weight: 600;
+        :root {
+            --gold: #c5a059;
+            --dark-site: #1a1a1a;
+            --white: #ffffff;
+            --cream: #f9f7f2;
+            --whatsapp: #25d366;
         }
 
-        /* Panier flottant */
-        #cart-bar {
-            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-            width: 90%; max-width: 500px; background: #25d366; color: white;
-            padding: 15px 25px; border-radius: 50px; display: none;
-            justify-content: space-between; align-items: center;
-            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); z-index: 1000;
-            cursor: pointer; font-weight: bold;
+        * { box-sizing: border-box; transition: all 0.3s ease; }
+        
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            margin: 0; 
+            background-color: var(--cream); 
+            color: var(--dark-site);
+            line-height: 1.6;
         }
 
-        /* Contact & Footer */
-        footer { background: white; padding: 40px 20px; text-align: center; margin-top: 50px; border-top: 1px solid #eee; }
-        .contact-box { margin-bottom: 20px; }
-        .social-link { color: var(--dark); text-decoration: none; margin: 0 10px; font-weight: 600; }
+        /* Navigation */
+        nav {
+            position: fixed; top: 0; width: 100%; height: 80px;
+            background: rgba(26, 26, 26, 0.95);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 50px; z-index: 1000; border-bottom: 1px solid var(--gold);
+        }
+        .logo { font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 1.8rem; font-weight: bold; }
+
+        /* Hero Section */
+        header {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1514326640560-7d063ef2aed5?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            color: var(--white); text-align: center; padding: 20px;
+        }
+        header h1 { 
+            font-family: 'Cormorant Garamond', serif; font-size: 4.5rem; margin: 0; 
+            letter-spacing: 2px;
+        }
+        header p { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 4px; color: var(--gold); }
+
+        /* Section Menu */
+        .container { max-width: 1100px; margin: -50px auto 100px; position: relative; z-index: 10; }
+        
+        .menu-section {
+            background: var(--white); padding: 50px; border-radius: 4px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .section-intro { text-align: center; margin-bottom: 60px; }
+        .section-intro h2 { font-family: 'Cormorant Garamond', serif; font-size: 3rem; margin: 0; }
+        .section-intro hr { width: 50px; border: 1px solid var(--gold); margin: 20px auto; }
+
+        /* Grille des plats */
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        
+        .card { 
+            background: var(--white); border: 1px solid #eee; overflow: hidden;
+            position: relative; cursor: pointer;
+        }
+        .card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        
+        .card-img { width: 100%; height: 250px; object-fit: cover; }
+        
+        .card-body { padding: 25px; text-align: center; }
+        .card-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; margin: 0 0 10px; }
+        .card-body .price { color: var(--gold); font-weight: 600; font-size: 1.2rem; margin-bottom: 20px; display: block; }
+        
+        .btn-order {
+            background: transparent; border: 1px solid var(--gold); color: var(--gold);
+            padding: 10px 25px; text-transform: uppercase; font-size: 0.8rem; font-weight: 600;
+            letter-spacing: 1px; cursor: pointer;
+        }
+        .btn-order:hover { background: var(--gold); color: white; }
+
+        /* Panier Flottant */
+        #cart-trigger {
+            position: fixed; bottom: 30px; right: 30px;
+            background: var(--whatsapp); color: white; padding: 15px 35px;
+            border-radius: 50px; font-weight: 600; display: none;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); z-index: 2000;
+            cursor: pointer; align-items: center; gap: 10px;
+        }
+
+        /* Footer */
+        footer { background: var(--dark-site); color: #888; padding: 80px 20px 40px; text-align: center; }
+        footer h4 { color: var(--gold); font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 10px; }
+        .info-contact { margin: 30px 0; font-size: 0.9rem; letter-spacing: 1px; }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            nav { padding: 0 20px; }
+            .menu-section { padding: 30px 15px; }
+        }
     </style>
 </head>
 <body>
 
+    <nav>
+        <div class="logo">LA MARMITE</div>
+        <div style="color: var(--white); font-size: 0.8rem; letter-spacing: 1px;">RÉSERVATION : +228 90 00 00 00</div>
+    </nav>
+
     <header>
-        <span class="badge-status">Ouvert actuellement</span>
-        <h1>La Marmite du Terroir</h1>
-        <p>Le goût authentique du Togo à votre table</p>
+        <p>Bienvenue dans l'Excellence</p>
+        <h1>Le Terroir Sublimé</h1>
     </header>
 
     <div class="container">
-        <h2 class="section-title">Nos Spécialités du Jour</h2>
-        
-        <div class="menu-grid">
-            <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7bb7445?w=400" class="item-img" alt="Fufu">
-                <div class="item-info">
-                    <p class="item-name">Fufu Sauce Graine (Poulet/Mouton)</p>
-                    <p class="item-price">2500 FCFA</p>
-                    <button class="add-btn" onclick="addToCart('Fufu Sauce Graine', 2500)">Ajouter au panier</button>
-                </div>
+        <div class="menu-section">
+            <div class="section-intro">
+                <h2>La Carte</h2>
+                <hr>
+                <p>Découvrez nos plats signatures préparés avec passion</p>
             </div>
 
-            <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1512058560366-cd242d4532be?w=400" class="item-img" alt="Riz">
-                <div class="item-info">
-                    <p class="item-name">Riz au Gras Spécial Marmite</p>
-                    <p class="item-price">1500 FCFA</p>
-                    <button class="add-btn" onclick="addToCart('Riz au Gras', 1500)">Ajouter au panier</button>
+            <div class="menu-grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600" class="card-img" alt="Fufu Premium">
+                    <div class="card-body">
+                        <h3>Fufu Royal au Mouton</h3>
+                        <span class="price">3.500 FCFA</span>
+                        <button class="btn-order" onclick="addToCart('Fufu Royal au Mouton', 3500)">Sélectionner</button>
+                    </div>
                 </div>
-            </div>
 
-            <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=400" class="item-img" alt="Poulet">
-                <div class="item-info">
-                    <p class="item-name">Poulet Braisé + Alloco</p>
-                    <p class="item-price">3000 FCFA</p>
-                    <button class="add-btn" onclick="addToCart('Poulet Braisé + Alloco', 3000)">Ajouter au panier</button>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1512058560366-cd242d4532be?w=600" class="card-img" alt="Riz">
+                    <div class="card-body">
+                        <h3>Riz au Gras Braisé</h3>
+                        <span class="price">2.000 FCFA</span>
+                        <button class="btn-order" onclick="addToCart('Riz au Gras Braisé', 2000)">Sélectionner</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1606471191009-63994c53433b?w=600" class="card-img" alt="Poisson">
+                    <div class="card-body">
+                        <h3>Carpe Grillée du Terroir</h3>
+                        <span class="price">5.000 FCFA</span>
+                        <button class="btn-order" onclick="addToCart('Carpe Grillée', 5000)">Sélectionner</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="cart-bar" onclick="sendWhatsApp()">
-        <span id="cart-count">0 plat sélectionné</span>
-        <span>Commander (WhatsApp) →</span>
+    <div id="cart-trigger" onclick="sendWhatsApp()">
+        <span id="cart-total">0 FCFA</span>
+        <span>| COMMANDER SUR WHATSAPP</span>
     </div>
 
     <footer>
-        <div class="contact-box">
-            <p>📍 Totsi, Lomé - Togo</p>
-            <p>📞 +228 90 00 00 00</p>
+        <h4>LA MARMITE DU TERROIR</h4>
+        <div class="info-contact">
+            OUVERT 7J/7 • 11H00 — 23H00<br>
+            Totsi, Boulevard du 30 Août, Lomé<br>
+            contact@marmitetogo.tg
         </div>
-        <div class="social-links">
-            <a href="#" class="social-link">Facebook</a>
-            <a href="#" class="social-link">Instagram</a>
+        <div style="border-top: 1px solid #333; padding-top: 20px; font-size: 0.7rem; opacity: 0.5;">
+            &copy; 2026 DIGITALISÉ PAR SERGIO • TOUS DROITS RÉSERVÉS
         </div>
-        <p style="font-size: 0.7em; margin-top: 30px; opacity: 0.5;">Digitalisé par Sergio - Propulsé par RestoPulse</p>
     </footer>
 
     <script>
         let cart = [];
-        const whatsappNumber = "22870019362"; // Ton numéro ou celui du gérant
+        const waNumber = "22870019362";
 
         function addToCart(name, price) {
             cart.push({name, price});
-            updateCartUI();
+            const total = cart.reduce((s, i) => s + i.price, 0);
+            document.getElementById('cart-total').innerText = total + " FCFA";
+            document.getElementById('cart-trigger').style.display = 'flex';
             
-            // Petit effet visuel
-            const bar = document.getElementById('cart-bar');
-            bar.style.display = 'flex';
-            bar.style.transform = 'translateX(-50%) scale(1.05)';
-            setTimeout(() => bar.style.transform = 'translateX(-50%) scale(1)', 200);
-        }
-
-        function updateCartUI() {
-            const count = cart.length;
-            const total = cart.reduce((sum, item) => sum + item.price, 0);
-            document.getElementById('cart-count').innerText = `${count} plat(s) - ${total} FCFA`;
+            // Notification visuelle
+            const btn = event.target;
+            btn.innerText = "Ajouté !";
+            setTimeout(() => btn.innerText = "Sélectionner", 1000);
         }
 
         function sendWhatsApp() {
-            if (cart.length === 0) return;
-            
-            let message = "Bonjour La Marmite du Terroir, je souhaite commander :\n\n";
-            cart.forEach((item, index) => {
-                message += `${index + 1}. *${item.name}* (${item.price} FCFA)\n`;
-            });
-            
-            const total = cart.reduce((sum, item) => sum + item.price, 0);
-            message += `\n💰 *Total : ${total} FCFA*`;
-            message += `\n📍 Adresse de livraison : _(À préciser)_`;
-
-            const encodedMessage = encodeURIComponent(message);
-            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+            let msg = "*COMMANDE LA MARMITE DU TERROIR*\n\n";
+            cart.forEach(item => msg += `• ${item.name} (${item.price} F)\n`);
+            const total = cart.reduce((s, i) => s + i.price, 0);
+            msg += `\n*TOTAL : ${total} FCFA*\n\n_Veuillez confirmer ma commande pour livraison._`;
+            window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`);
         }
     </script>
 </body>
