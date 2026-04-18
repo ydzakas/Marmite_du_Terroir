@@ -1,0 +1,9 @@
+{
+  "plats": [
+    {
+      "nom": "Fufu Sauce Graine",
+      "prix": 2500,
+      "image": "assets/plat-fufu.jpg"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Marmite du Terroir | Gastronomie & Événements à Lomé</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">LA MARMITE DU TERROIR</div>
+        <ul class="nav-links">
+            <li><a href="#menu">La Carte</a></li>
+            <li><a href="#events">Événements</a></li>
+            <li><a href="#privatisation">Privatisation</a></li>
+            <li><a href="/admin/" class="btn-admin">Espace Gérant</a></li>
+        </ul>
+        <div class="cart-icon" onclick="toggleCart()">
+            <span class="icon">🛒</span>
+            <span id="cart-badge">0</span>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-overlay">
+            <span class="pre-title">AUTHENTICITÉ & SAVEURS DU TOGO</span>
+            <h1>La Marmite du Terroir</h1>
+            <p>Le rendez-vous incontournable des gourmets à Lomé.</p>
+            <div class="hero-btns">
+                <a href="#menu" class="cta-gold">Découvrir le Menu</a>
+                <a href="tel:+22890177575" class="cta-outline">Appeler maintenant</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="dev-ads">
+        <div class="ad-box">
+            <p class="ad-label">PUBLICITÉ PARTENAIRE</p>
+            <div id="jo-adsense-space">
+                <p style="color:#ccc; font-size: 11px;">Espace Publicitaire - Jo D. Digital</p>
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
+        
+        <section id="menu" class="section">
+            <h2 class="section-title">Notre Carte Signature</h2>
+            <div class="grid" id="menu-container">
+                <p class="loading">Chargement des plats en cours...</p>
+            </div>
+        </section>
+
+        <section id="privatisation" class="section privatization-full">
+            <h2 class="section-title">Privatisation d'Espace</h2>
+            <div class="privatization-content">
+                <div class="full-image-container">
+                    <img src="assets/local-1.jpg" alt="Espace Privatisation" onerror="this.src='https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80'">
+                </div>
+                <div class="privatization-text-center">
+                    <h3>Un cadre unique pour vos réceptions</h3>
+                    <p>Mariages, anniversaires ou séminaires. Profitez d'un espace boisé, ventilé et sécurisé en plein cœur de Totsi.</p>
+                    <div class="features">
+                        <span>Capacité 150 personnes</span>
+                        <span>Service Traiteur</span>
+                        <span>Parking Sécurisé</span>
+                    </div>
+                    <a href="https://wa.me/22890177575?text=Bonjour+La+Marmite+du+Terroir+je+souhaite+un+devis+pour+louer+votre+espace" class="cta-gold">Demander un devis</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="location" class="section">
+            <h2 class="section-title">Nous Trouver</h2>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d1.189453!3d6.194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1023e1c0c1c0c1c1%3A0x1c1c1c1c1c1c1c1c!2sLa%20Marmite%20du%20Terroir!5e0!3m2!1sfr!2stg!4v1715000000000!5m2!1sfr!2stg" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <h4>Contact</h4>
+                <p>📞 +228 90 17 75 75</p>
+                <p>📧 restaurantlamat@gmail.com</p>
+            </div>
+            <div>
+                <h4>Adresse</h4>
+                <p>Face Station T-Oil, Boulevard du 30 Août</p>
+                <p>Totsi, Lomé - Togo</p>
+            </div>
+        </div>
+        <hr>
+        <p class="credits">&copy; 2026 La Marmite du Terroir | Digitalisé par <strong>Jo D. Digital</strong></p>
+    </footer>
+
+    <div id="cart-modal" class="modal-overlay">
+        <div class="cart-window">
+            <div class="cart-header">
+                <h2>Votre Panier</h2>
+                <button class="close-cart" onclick="toggleCart()">✕</button>
+            </div>
+            <div id="cart-content" class="cart-body"></div>
+            <div class="cart-footer">
+                <div class="total-row"><span>Total :</span> <span id="total-amount">0</span> FCFA</div>
+                <button class="btn-checkout" onclick="sendOrder()">Commander sur WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

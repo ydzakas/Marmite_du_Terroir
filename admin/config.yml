@@ -1,0 +1,35 @@
+backend:
+  name: github
+  repo: ydzakas/Marmite_du_Terroir
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "content"
+    label: "Contenu du Site"
+    files:
+      - label: "Menu du Restaurant"
+        name: "menu"
+        file: "data/menu.json"
+        fields:
+          - label: "Plats"
+            name: "plats"
+            widget: "list"
+            fields:
+              - {label: "Nom du Plat", name: "nom", widget: "string"}
+              - {label: "Prix (FCFA)", name: "prix", widget: "number"}
+              - {label: "Image", name: "image", widget: "image"}
+      
+      - label: "Publicités Partenaires Locaux"
+        name: "pubs"
+        file: "data/pubs.json"
+        fields:
+          - label: "Annonces"
+            name: "annonces"
+            widget: "list"
+            fields:
+              - {label: "Nom du Partenaire", name: "nom", widget: "string"}
+              - {label: "Affiche (Bannière)", name: "image", widget: "image"}
+              - {label: "Lien externe", name: "url", widget: "string", required: false}
